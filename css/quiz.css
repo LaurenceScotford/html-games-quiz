@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  background-color: #337788;
+  color: white;
+  border-radius: 20px;
+}
+
+a {
+  background-color: #337788;
+  color: white;
+  padding: 6px;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #4499aa;
+}
+
+.question {
+  color: #337788;
+  font-weight: bold;
+}
