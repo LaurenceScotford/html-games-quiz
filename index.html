@@ -9,12 +9,26 @@
     <h1>General Knowledge Quiz</h1>
     <p>Welcome to this fun quiz to test your general knowledge. See how easily you can answer the following questions.</p>
     <p class="question">What is the capital city of Australia?</p>
-    <ol type="A">
-      <li>Sydney</li>
-      <li>Melbourne</li>
-      <li>Canberra</li>
-      <li>Brisbane</li>
-    </ol>
+    <form action="index.html" method="GET">
+      <input type="radio" id="option1" name="answer" value="1"> <label for="option1">Sydney</label><br>
+      <input type="radio" id="option2" name="answer" value="2"> <label for="option2">Melbourne</label><br>
+      <input type="radio" id="option3" name="answer" value="3"> <label for="option3">Canberra</label><br>
+      <input type="radio" id="option4" name="answer" value="4"> <label for="option4">Brisbane</label><br>
+      <input type="submit">
+    </form>
     <p><a href="question2.html">See the correct answer and question 2</a></p>
+    <script>
+      let formValues = new URLSearchParams(window.location.search);
+      let result = 'incorrect!\nTry again or go to the next question';
+      let answer = formValues.get('answer');
+
+      if (answer == '3') {
+        result = 'correct!\nGo to the next question';
+      }
+
+      if (answer != null) {
+          alert('Your answer is ' + result);
+      }
+    </script>
   </body>
 </html>
