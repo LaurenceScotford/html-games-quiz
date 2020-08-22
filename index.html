@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>General Knowledge Quiz</title>
     <link rel="stylesheet" href="css/quiz.css">
+    <script src="js/quiz.js"></script>
   </head>
   <body>
     <h1>General Knowledge Quiz</h1>
@@ -16,19 +17,11 @@
       <input type="radio" id="option4" name="answer" value="4"> <label for="option4">Brisbane</label><br>
       <input type="submit">
     </form>
-    <p><a href="question2.html">See the correct answer and question 2</a></p>
+    <p class="hidden" id="correct"><strong>That's correct!</strong> Now try the next question...</p>
+    <p class="hidden" id="incorrect"><strong>Sorry! That's not the right answer!</strong> Try again...</p>
+    <p class="hidden" id="nextQuestion"><a href="question2.html">See question 2</a></p>
     <script>
-      let formValues = new URLSearchParams(window.location.search);
-      let result = 'incorrect!\nTry again or go to the next question';
-      let answer = formValues.get('answer');
-
-      if (answer == '3') {
-        result = 'correct!\nGo to the next question';
-      }
-
-      if (answer != null) {
-          alert('Your answer is ' + result);
-      }
+      document.addEventListener("DOMContentLoaded", checkAnswer);
     </script>
   </body>
 </html>
