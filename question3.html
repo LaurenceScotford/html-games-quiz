@@ -4,20 +4,29 @@
     <meta charset="utf-8">
     <title>General Knowledge Quiz - Question 3</title>
     <link rel="stylesheet" href="css/quiz.css">
+    <script src="js/quiz.js"></script>
   </head>
   <body>
     <h1>General Knowledge Quiz</h1>
-    <p>The answer to question 2 was B. French, C. German, D. Italian and E. Romansh. Now try question 3:</p>
     <p class="question">What is the total area of the room shown in this plan?</p>
     <img src="images/html-question3-image.png">
-    <ol type="A">
-      <li>10 m<sup>2</sup></li>
-      <li>12.5 m<sup>2</sup></li>
-      <li>50 m<sup>2</sup></li>
-      <li>56.25 m<sup>2</sup></li>
-      <li>62.5 m<sup>2</sup></li>
-      <li>75 m<sup>2</sup></li>
-    </ol>
-    <p><a href="finalpage.html">See the correct answer</a></p>
+    <form action="question3.html" method="GET">
+      <input type="radio" id="option1" name="answer" value="1"> <label id="label1" for="option1">10 m<sup>2</sup></label><br>
+      <input type="radio" id="option2" name="answer" value="2"> <label id="label2" for="option2">12.5 m<sup>2</sup></label><br>
+      <input type="radio" id="option3" name="answer" value="3"> <label id="label3" for="option3">50 m<sup>2</sup></label><br>
+      <input type="radio" id="option4" name="answer" value="4"> <label id="label4" for="option4">56.25 m<sup>2</sup></label><br>
+      <input type="radio" id="option5" name="answer" value="5"> <label id="label5" for="option5">62.5 m<sup>2</sup></label><br>
+      <input type="radio" id="option6" name="answer" value="6"> <label id="label6" for="option6">75 m<sup>2</sup></label><br>
+      <input type="submit">
+    </form>
+    <p class="hidden" id="answerGiven"></p>
+    <p class="hidden" id="correct"><strong>That's correct!</strong></p>
+    <p class="hidden" id="incorrect"><strong>Sorry! That's not the right answer!</strong> Try again...</p>
+    <p class="hidden" id="nextQuestion"></p>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        checkAnswer("single", "5", 6);
+      });
+    </script>
   </body>
 </html>
