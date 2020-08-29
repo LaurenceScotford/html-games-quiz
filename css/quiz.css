@@ -18,8 +18,7 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-input[type='submit']:hover {
+.button:hover {
   background-color: #4499aa;
 }
 
@@ -28,15 +27,34 @@ input[type='submit']:hover {
   font-weight: bold;
 }
 
-input[type='submit'] {
-  background-color: #337788;
-  color: white;
+button {
   padding: 6px;
   border: none;
   font-size: large;
   margin: 10px 0;
 }
 
+.button {
+  background-color: #337788;
+  color: white;
+}
+
 .hidden {
   display: none;
+}
+
+.optionButton {
+  display: block;
+  background-color: white;
+  color: #337788;
+}
+
+.optionButton:hover {
+  background-color: #44aabb;
+  color: white;
+}
+
+.selected {
+  background-color: #338877;
+  color: white;
 }

@@ -1,0 +1,83 @@
+[
+  {
+    "type": "single",
+    "questionText": "What is the capital city of Australia?",
+    "image": null,
+    "options": [
+      {
+        "optionText": "Sydney",
+        "correct": false
+      },
+      {
+        "optionText": "Melbourne",
+        "correct": false
+      },
+      {
+        "optionText": "Canberra",
+        "correct": true
+      },
+      {
+        "optionText": "Brisbane",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multi",
+    "questionText": "Which of the following are national languages of Switzerland?",
+    "image": null,
+    "options": [
+      {
+        "optionText": "English",
+        "correct": false
+      },
+      {
+        "optionText": "French",
+        "correct": true
+      },
+      {
+        "optionText": "German",
+        "correct": true
+      },
+      {
+        "optionText": "Italian",
+        "correct": true
+      },
+      {
+        "optionText": "Romansh",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "questionText": "What is the total area of the room shown in this plan?",
+    "image": "html-question3-image.png",
+    "options": [
+      {
+        "optionText": "10 m<sup>2</sup>",
+        "correct": false
+      },
+      {
+        "optionText": "12.5 m<sup>2</sup>",
+        "correct": false
+      },
+      {
+        "optionText": "50 m<sup>2</sup>",
+        "correct": false
+      },
+      {
+        "optionText": "56.25 m<sup>2</sup>",
+        "correct": false
+      },
+      {
+        "optionText": "62.5 m<sup>2</sup>",
+        "correct": true
+      },
+      {
+        "optionText": "75 m<sup>2</sup>",
+        "correct": false
+      }
+    ]
+  }
+]

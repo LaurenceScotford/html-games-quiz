@@ -8,22 +8,24 @@
   </head>
   <body>
     <h1>General Knowledge Quiz</h1>
-    <p>Welcome to this fun quiz to test your general knowledge. See how easily you can answer the following questions.</p>
-    <p class="question">What is the capital city of Australia?</p>
-    <form action="index.html" method="GET">
-      <input type="radio" id="option1" name="answer" value="1"> <label id="label1" for="option1">Sydney</label><br>
-      <input type="radio" id="option2" name="answer" value="2"> <label id="label2" for="option2">Melbourne</label><br>
-      <input type="radio" id="option3" name="answer" value="3"> <label id="label3" for="option3">Canberra</label><br>
-      <input type="radio" id="option4" name="answer" value="4"> <label id="label4" for="option4">Brisbane</label><br>
-      <input type="submit">
-    </form>
+    <p class="hidden" id="firstQuestion">Welcome to this fun quiz to test your general knowledge. See how easily you can answer the following questions.</p>
+    <p class="question" id="questionText"></p>
+    <img class="hidden" id="image">
+    <p>Select the correct answer<span id="multiple" class="hidden">s</span> and then click the Submit button.</p>
+    <div id="options">
+    </div>
+    <button class="button" id="submit">Submit</button>
     <p class="hidden" id="answerGiven"></p>
-    <p class="hidden" id="correct"><strong>That's correct!</strong> Now try the next question...</p>
+    <p class="hidden" id="correct"><strong>That's correct!</strong> <span id="nextQuestionPrompt" class="hidden">Now try the next question...</span></p>
     <p class="hidden" id="incorrect"><strong>Sorry! That's not the right answer!</strong> Try again...</p>
-    <p class="hidden" id="nextQuestion"><a href="question2.html">See question 2</a></p>
+    <button class="button, hidden" id="nextQuestion">See question <span id="nextQuestionNum"></span></button>
+    <div class="hidden" id="finalQuestion">
+      <p>Thanks for playing the quiz!</p>
+      <button class="button" id="replay">Play again</button>
+    </div>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        checkAnswer("single", "3", 4);
+        quiz.initialiseQuiz();
       });
     </script>
   </body>
