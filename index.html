@@ -17,10 +17,12 @@
     </div>
     <button class="button" id="submit">Submit</button>
     <p class="hidden" id="correct"><strong>That's correct!</strong> <span id="nextQuestionPrompt" class="hidden">Now try the next question...</span></p>
-    <p class="hidden" id="incorrect"><strong>Sorry! That's not the right answer!</strong> Try again...</p>
+    <p class="hidden" id="incorrect"><strong>Sorry! That's not the right answer!</strong> <span id="retry">Try again...</span></p>
+    <p class="hidden" id="score">You scored <span id="points"></span> point<span id="pluralPoints">s</span> for this question.</P>
     <button class="button hidden" id="nextQuestion">See question <span id="nextQuestionNum"></span></button>
     <div class="hidden" id="finalQuestion">
       <p>Thanks for playing the quiz!</p>
+      <p>Your final score is <span id="totalPoints"></span> out of <span id="maxPoints"></span> points.</p>
       <button class="button" id="replay">Play again</button>
     </div>
     <script>

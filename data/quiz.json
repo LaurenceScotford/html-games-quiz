@@ -23,6 +23,33 @@
     ]
   },
   {
+    "type": "single",
+    "questionText": "How many squares can you find in this picture?",
+    "image": "html-squares-question.png",
+    "options": [
+      {
+        "optionText": "14",
+        "correct": false
+      },
+      {
+        "optionText": "15",
+        "correct": false
+      },
+      {
+        "optionText": "16",
+        "correct": false
+      },
+      {
+        "optionText": "17",
+        "correct": true
+      },
+      {
+        "optionText": "18",
+        "correct": false
+      }
+    ]
+  },
+  {
     "type": "multi",
     "questionText": "Which of the following are national languages of Switzerland?",
     "image": null,
@@ -76,6 +103,33 @@
       },
       {
         "optionText": "75 m<sup>2</sup>",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "type": "multi",
+    "questionText": "Which of the following buildings are over half a kilometre tall?",
+    "image": null,
+    "options": [
+      {
+        "optionText": "One World Trade Centre",
+        "correct": true
+      },
+      {
+        "optionText": "Empire State Building",
+        "correct": false
+      },
+      {
+        "optionText": "Burj Khalifa",
+        "correct": true
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "correct": true
+      },
+      {
+        "optionText": "Petronas Towers",
         "correct": false
       }
     ]

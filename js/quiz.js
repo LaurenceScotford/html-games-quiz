@@ -2,6 +2,11 @@ var quiz = {
   quizData: null,
   currentQuestion: 0,
   page: null,
+  maxAttempts: 2,
+  attemptNum: 0,
+  maxPointsPerQuestion: 2,
+  penaltyPerExtraAttempt: 1,
+  totalScore: 0,
   initialiseQuiz: function() {
     this.page = this.getPageElements();
     fetch('/data/quiz.json')
@@ -66,6 +71,9 @@ var quiz = {
     this.setVisibility(this.page.correct, false);
     this.setVisibility(this.page.incorrect, false);
 
+    // Hide the score
+    this.setVisibility(this.page.score, false);
+
     // Hide the next question button
     this.setVisibility(this.page.nextQuestion, false);
 
@@ -73,6 +81,10 @@ var quiz = {
     this.setVisibility(this.page.finalQuestion, false);
   },
   checkAnswer: function() {
+    // increment attempt number
+    quiz.attemptNum++;
+    let hadPermittedAttempts = (quiz.attemptNum == quiz.maxAttempts);
+
     // Hide incorrect feedback in case it is still showing from a previous attempt
     quiz.setVisibility(quiz.page.incorrect, false);
 
@@ -87,20 +99,35 @@ var quiz = {
       }
     }
 
-    if (answeredCorrectly) {
+    if (answeredCorrectly || hadPermittedAttempts) {
       let optButtons = document.querySelectorAll('.optionButton');
       for (let i = 0; i < options.length; i++) {
         optButtons[i].disabled = true;
       }
 
       quiz.setVisibility(quiz.page.submit, false);
+
+      let points = answeredCorrectly ? quiz.maxPointsPerQuestion - ((quiz.attemptNum - 1) * quiz.penaltyPerExtraAttempt) : 0;
+      quiz.totalScore += points;
+      quiz.page.points.innerHTML = points;
+      quiz.setVisibility(quiz.page.score, true);
+      quiz.setVisibility(quiz.page.pluralPoints, points != 1);
+
+      if (quiz.currentQuestion == quiz.quizData.length - 1) {
+        quiz.page.totalPoints.innerHTML = quiz.totalScore;
+        quiz.page.maxPoints.innerHTML = quiz.quizData.length * quiz.maxPointsPerQuestion;
+        quiz.setVisibility(quiz.page.finalQuestion, true);
+      } else {
+        quiz.page.nextQuestionNum.innerHTML = quiz.currentQuestion + 2;
+        quiz.setVisibility(quiz.page.nextQuestion, true);
+      }
+    }
+
+    if (answeredCorrectly) {
       quiz.setVisibility(quiz.page.correct, true);
-      let atFinalQuestion = quiz.currentQuestion == quiz.quizData.length - 1;
-      quiz.setVisibility(quiz.page.finalQuestion, atFinalQuestion);
-      quiz.page.nextQuestionNum.innerHTML = quiz.currentQuestion + 2;
-      quiz.setVisibility(quiz.page.nextQuestion, !atFinalQuestion);
     } else {
         quiz.setVisibility(quiz.page.incorrect, true);
+        quiz.setVisibility(quiz.page.retry, !hadPermittedAttempts);
     }
   },
   optionClicked: function(evt) {
@@ -126,13 +153,22 @@ var quiz = {
     quiz.page.submit.disabled = document.querySelectorAll('.selected').length == 0;
   },
   showNextQuestion: function(reset) {
+    // Reset attempt number
+    quiz.attemptNum = 0;
+
     // Remove existing answer options
     while (quiz.page.options.firstChild) {
       quiz.page.options.removeChild(quiz.page.options.firstChild);
     }
 
     // Show next question (or first if resetting)
-    quiz.currentQuestion = reset ? 0 : quiz.currentQuestion + 1;
+    if (reset) {
+      quiz.currentQuestion = 0;
+      quiz.totalScore = 0;
+    } else {
+      quiz.currentQuestion++;
+    }
+
     quiz.updatePage();
   },
   getPageElements: function() {
