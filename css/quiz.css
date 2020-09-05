@@ -4,22 +4,6 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  text-align: center;
-  background-color: #337788;
-  color: white;
-  border-radius: 20px;
-}
-
-.button:hover {
-  background-color: #4499aa;
-}
-
-.question {
-  color: #337788;
-  font-weight: bold;
-}
-
 button {
   padding: 6px;
   border: none;
@@ -27,9 +11,24 @@ button {
   margin: 10px 0;
 }
 
+h1 {
+  text-align: center;
+  background-color: #337788;
+  color: white;
+  border-radius: 20px;
+}
+
 .button {
   background-color: #337788;
   color: white;
+}
+
+.button:hover {
+  background-color: #4499aa;
+}
+
+.button:disabled {
+  background-color: grey;
 }
 
 .hidden {
@@ -42,9 +41,14 @@ button {
   color: #337788;
 }
 
-.optionButton:hover {
+.optionButton:enabled:hover {
   background-color: #44aabb;
   color: white;
+}
+
+.question {
+  color: #337788;
+  font-weight: bold;
 }
 
 .selected {

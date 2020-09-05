@@ -9,16 +9,16 @@
   <body>
     <h1>General Knowledge Quiz</h1>
     <p class="hidden" id="firstQuestion">Welcome to this fun quiz to test your general knowledge. See how easily you can answer the following questions.</p>
+    <p><strong>Question <span id="questionNum"></span> of <span id="totalQuestions"></span></strong></p>
     <p class="question" id="questionText"></p>
     <img class="hidden" id="image">
     <p>Select the correct answer<span id="multiple" class="hidden">s</span> and then click the Submit button.</p>
     <div id="options">
     </div>
     <button class="button" id="submit">Submit</button>
-    <p class="hidden" id="answerGiven"></p>
     <p class="hidden" id="correct"><strong>That's correct!</strong> <span id="nextQuestionPrompt" class="hidden">Now try the next question...</span></p>
     <p class="hidden" id="incorrect"><strong>Sorry! That's not the right answer!</strong> Try again...</p>
-    <button class="button, hidden" id="nextQuestion">See question <span id="nextQuestionNum"></span></button>
+    <button class="button hidden" id="nextQuestion">See question <span id="nextQuestionNum"></span></button>
     <div class="hidden" id="finalQuestion">
       <p>Thanks for playing the quiz!</p>
       <button class="button" id="replay">Play again</button>
