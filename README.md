@@ -8,3 +8,5 @@ Questions are stored in the **quiz.json** file within the **data** folder. The r
 - **options**: An array of answer options. Each answer option is an object with the following properties:
   - **optionText**: The answer text to be shown to the player. This can include HTML if required
   - **correct**: Set to **true** if this answer is correct, or **false** otherwise
+## Development diary
+If you are interested, there's a [development diary](https://laurencescotford.com/html-games-programming-from-the-ground-up-first-steps/) for this quiz framework.
