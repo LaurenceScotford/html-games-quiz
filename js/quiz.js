@@ -9,7 +9,7 @@ var quiz = {
   totalScore: 0,
   initialiseQuiz: function() {
     this.page = this.getPageElements();
-    fetch('/data/quiz.json')
+    fetch('./data/quiz.json')
     .then(response => response.json())
     .then(json => {
       this.quizData = json;
